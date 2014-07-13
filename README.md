@@ -7,9 +7,22 @@ A JavaScript library that makes `<abbr>` element `title` attributes touch access
 
 ## Usage
 
+See [demo.html][2] for a deeper example.
+
 ```javascript
-// Will attach the relevant event listeners to elements matching 'abbr[title]'
+// default handler on document (alert)
 abbrTouch();
+
+// default handler, apply to descendants of #some-element
+abbrTouch(document.querySelector('#some-element'));
+
+// custom handler, apply to descendants of #some-element
+abbrTouch(document.querySelector('#some-element'), function (target, title, touchX, touchY) {
+  console.log(target);
+  console.log(title);
+  console.log(touchX);
+  console.log(touchY);
+});
 ```
 
 ## See also
@@ -19,3 +32,4 @@ abbrTouch();
 
 
   [1]: https://github.com/Tyriar/abbr-fill.js
+  [2]: https://github.com/Tyriar/abbr-touch.js/blob/master/demo.html
