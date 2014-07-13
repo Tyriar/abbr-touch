@@ -1,0 +1,25 @@
+{
+  "name": "abbr-touch.js",
+  "main": "abbr-touch.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Tyriar/abbr-touch.js",
+  "authors": [
+    "Tyriar (http://www.growingwiththeweb.com)"
+  ],
+  "description": "A JavaScript library that makes abbr element title attributes touch accessible",
+  "keywords": [
+    "touch",
+    "event"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "touchtap-event.js": "~0.1.0"
+  }
+}
