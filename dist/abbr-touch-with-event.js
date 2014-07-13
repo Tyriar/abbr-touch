@@ -3,14 +3,15 @@
 (function () {
   'use strict';
 
-  var event;
+  var touchTapEvent;
   var isTapLength;
   var tapLengthTimeout;
   var startPosition   = { x: -1, y: -1 };
   var currentPosition = { x: -1, y: -1 };
 
   function init () {
-    event = new Event('touchtap');
+    touchTapEvent = document.createEvent('CustomEvent');
+    touchTapEvent.initEvent('touchtap', true, true);
     document.addEventListener('touchstart', touchstart);
     document.addEventListener('touchend', touchend);
     document.addEventListener('touchcancel', touchend);
@@ -36,9 +37,11 @@
     if (isTapLength &&
         approximatelyEqual(startPosition.x, currentPosition.x) &&
         approximatelyEqual(startPosition.y, currentPosition.y)) {
-      e.target.dispatchEvent(event, {
-        'target': e.target
-      });
+      touchTapEvent.customData = {
+        touchX: currentPosition.x,
+        touchY: currentPosition.y
+      };
+      e.target.dispatchEvent(touchTapEvent);
     }
   }
 
@@ -70,15 +73,31 @@
 var abbrTouch = (function () {
   'use strict';
 
-  function init () {
-    var elements = document.querySelectorAll('abbr[title]');
+  function init(elementScope, customTapHandler) {
+    if (!elementScope) {
+      elementScope = document;
+    }
+
+    var tapHandler = defaultOnTapHandler;
+    if (customTapHandler) {
+      tapHandler = customTapHandler;
+    }
+
+    var elements = elementScope.querySelectorAll('abbr[title]');
+    var touchtapHandler = generateTouchtapHandler(tapHandler);
     for (var i = 0; i < elements.length; i++) {
-      elements[i].addEventListener('touchtap', tap);
+      elements[i].addEventListener('touchtap', touchtapHandler);
     }
   }
 
-  function tap(e) {
-    alert(e.target.title);
+  function generateTouchtapHandler(handler) {
+    return (function (e) {
+      handler(e.target, e.target.title, e.customData.touchX, e.customData.touchY);
+    });
+  }
+
+  function defaultOnTapHandler(target, title, touchX, touchY) {
+    alert(title);
   }
 
   return init;

@@ -3,15 +3,31 @@
 var abbrTouch = (function () {
   'use strict';
 
-  function init () {
-    var elements = document.querySelectorAll('abbr[title]');
+  function init(elementScope, customTapHandler) {
+    if (!elementScope) {
+      elementScope = document;
+    }
+
+    var tapHandler = defaultOnTapHandler;
+    if (customTapHandler) {
+      tapHandler = customTapHandler;
+    }
+
+    var elements = elementScope.querySelectorAll('abbr[title]');
+    var touchtapHandler = generateTouchtapHandler(tapHandler);
     for (var i = 0; i < elements.length; i++) {
-      elements[i].addEventListener('touchtap', tap);
+      elements[i].addEventListener('touchtap', touchtapHandler);
     }
   }
 
-  function tap(e) {
-    alert(e.target.title);
+  function generateTouchtapHandler(handler) {
+    return (function (e) {
+      handler(e.target, e.target.title, e.customData.touchX, e.customData.touchY);
+    });
+  }
+
+  function defaultOnTapHandler(target, title, touchX, touchY) {
+    alert(title);
   }
 
   return init;

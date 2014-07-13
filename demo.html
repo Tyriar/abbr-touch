@@ -2,17 +2,55 @@
 <head>
   <title>abbr-touch.js demo</title>
   <style>
-  abbr[title] {
-    background-color:red;
-  }
+    abbr[title] {
+      background-color:red;
+    }
+    #tooltip {
+      visibility: hidden;
+      position: absolute;
+      background-color: yellow;
+      border: 1px solid #000;
+      font-size: 1.3em;
+      opacity: 0.85;
+    }
+    #tooltip[data-timestamp] {
+      visibility: visible;
+    }
   </style>
 </head>
 <body>
-  <p>This library listens for a <abbr title="JavaScript">JS</abbr> event that is triggered when a tap occurs on an <abbr title="abbreviation/acronym">abbr</abbr> <abbr title="HyperText Markup Language">HTML</abbr> a touch-enabled device. When a tap occurs, a pop up is displayed.</p>
+  <div id="first">
+    <h2>Default handler</h2>
+    <p>This library listens for a <abbr title="JavaScript">JS</abbr> event that is triggered when a tap occurs on an <abbr title="abbreviation/acronym">abbr</abbr> <abbr title="HyperText Markup Language">HTML</abbr> a touch-enabled device. When a tap occurs, a pop up is displayed.</p>
+  </div>
+
+  <div id="second">
+    <h2>Custom handler</h2>
+    <p>This library listens for a <abbr title="JavaScript">JS</abbr> event that is triggered when a tap occurs on an <abbr title="abbreviation/acronym">abbr</abbr> <abbr title="HyperText Markup Language">HTML</abbr> a touch-enabled device. When a tap occurs, a pop up is displayed.</p>
+  </div>
+
+  <div id="tooltip"></div>
 
   <script src="dist/abbr-touch-with-event.js" type="text/javascript"></script>
   <script>
-  abbrTouch();
+    // default handler
+    abbrTouch(document.querySelector('#first'));
+    // custom handler
+    abbrTouch(document.querySelector('#second'), function (target, title, touchX, touchY) {
+      var tooltip = document.querySelector('#tooltip');
+      tooltip.innerHTML = title;
+      tooltip.style.left = (touchX - tooltip.clientWidth / 2) + 'px';
+      tooltip.style.top = (touchY - 50) + 'px';
+      var timestamp = (new Date()).getTime();
+      tooltip.setAttribute('data-timestamp', timestamp);
+      document.body.appendChild(tooltip);
+
+      setTimeout(function () {
+        if (tooltip.getAttribute('data-timestamp') == timestamp) {
+          tooltip.removeAttribute('data-timestamp');
+        }
+      }, 1500);
+    });
   </script>
 </body>
 </html>

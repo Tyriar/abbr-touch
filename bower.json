@@ -20,6 +20,6 @@
     "tests"
   ],
   "dependencies": {
-    "touchtap-event.js": "~0.1.0"
+    "touchtap-event.js": "~1.1.2"
   }
 }
