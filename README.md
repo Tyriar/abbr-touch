@@ -17,12 +17,14 @@ abbrTouch();
 abbrTouch(document.querySelector('#some-element'));
 
 // custom handler, apply to descendants of #some-element
-abbrTouch(document.querySelector('#some-element'), function (target, title, touchX, touchY) {
+abbrTouch(document.querySelector('#some-element'), myHandler);
+
+function myHandler(target, title, touchX, touchY) {
   console.log(target);
   console.log(title);
   console.log(touchX);
   console.log(touchY);
-});
+}
 ```
 
 ## See also
