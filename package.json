@@ -3,6 +3,9 @@
   "version": "0.1.1",
   "description": "A JavaScript library that makes <abbr> element title attributes touch accessible.",
   "main": "abbr-touch.js",
+  "scripts": {
+    "test": "grunt test"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Tyriar/abbr-touch.js.git"
