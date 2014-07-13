@@ -25,8 +25,8 @@ var abbrTouch = (function () {
     currentPosition.x = pointerEvent.pageX;
     currentPosition.y = pointerEvent.pageY;
     isTapLength = true;
-    if (tagLengthTimeout) {
-      clearTimeout(tagLengthTimeout);
+    if (tapLengthTimeout) {
+      clearTimeout(tapLengthTimeout);
     }
     tapLengthTimeout = setTimeout(function () {
       isTapLength = false;
@@ -34,7 +34,6 @@ var abbrTouch = (function () {
   }
 
   function touchend(e) {
-    var pointerEvent = getPointerEvent(e);
     if (isTapLength &&
         approximatelyEqual(startPosition.x, currentPosition.x) &&
         approximatelyEqual(startPosition.y, currentPosition.y)) {
