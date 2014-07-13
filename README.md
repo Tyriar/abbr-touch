@@ -1,4 +1,4 @@
-# abbr-fill.js
+# abbr-touch.js
 
 A JavaScript library that makes `<abbr>` element `title` attributes touch accessible.
 
