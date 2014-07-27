@@ -1,4 +1,4 @@
-# abbr-touch.js
+# abbr-touch.js [![NPM version](http://img.shields.io/npm/v/abbr-touch.js.svg?style=flat)](https://www.npmjs.org/package/js-data-structures)
 
 [![Build Status](http://img.shields.io/travis/Tyriar/abbr-touch.js.svg?style=flat)](https://travis-ci.org/Tyriar/abbr-touch.js)
 [![Code Climate](http://img.shields.io/codeclimate/github/Tyriar/abbr-touch.js.svg?style=flat)](https://codeclimate.com/github/Tyriar/abbr-touch.js)
