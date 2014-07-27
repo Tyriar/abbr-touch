@@ -18,21 +18,10 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.config('concat', {
-    dist: {
-      src: [
-        'bower_components/touchtap-event.js/dist/touchtap-event.js',
-        'abbr-touch.js'
-      ],
-      dest: 'dist/abbr-touch-with-event.js',
-    },
-  });
-
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.config('jasmine', {
     test: {
-      src: 'dist/abbr-touch-with-event.js',
+      src: 'dist/abbr-touch.js',
       options: {
         specs: 'test/*-spec.js'
       }
@@ -48,10 +37,6 @@ module.exports = function(grunt) {
       files: {
         'dist/abbr-touch.min.js': [
           'abbr-touch.js'
-        ],
-        'dist/abbr-touch-with-event.min.js': [
-          'bower_components/touchtap-event.js/dist/touchtap-event.min.js',
-          'abbr-touch.js'
         ]
       }
     }
@@ -60,7 +45,6 @@ module.exports = function(grunt) {
   grunt.registerTask('dist', [
     'clean:dist',
     'copy:dist',
-    'concat:dist',
     'uglify:dist'
   ]);
 
@@ -69,6 +53,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'dist'
+    'dist',
+    'test'
   ]);
 };
