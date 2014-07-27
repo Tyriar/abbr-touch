@@ -1,7 +1,7 @@
 # abbr-touch.js
 
-[![Build Status](https://travis-ci.org/Tyriar/abbr-touch.js.svg?branch=master)](https://travis-ci.org/Tyriar/abbr-touch.js)
-[![Code Climate](https://codeclimate.com/github/Tyriar/abbr-touch.js.png)](https://codeclimate.com/github/Tyriar/abbr-touch.js)
+[![Build Status](http://img.shields.io/travis/Tyriar/abbr-touch.js.svg?style=flat)](https://travis-ci.org/Tyriar/abbr-touch.js)
+[![Code Climate](http://img.shields.io/codeclimate/github/Tyriar/abbr-touch.js.svg?style=flat)](https://codeclimate.com/github/Tyriar/abbr-touch.js)
 
 A JavaScript library that makes `<abbr>` element `title` attributes touch accessible.
 
