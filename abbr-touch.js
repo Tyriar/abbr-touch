@@ -15,10 +15,7 @@ var abbrTouch = (function () {
       elementScope = document;
     }
 
-    var tapHandler = defaultOnTapHandler;
-    if (customTapHandler) {
-      tapHandler = customTapHandler;
-    }
+    var tapHandler = customTapHandler || defaultOnTapHandler;
 
     var elements = elementScope.querySelectorAll('abbr[title]');
     var touchtapHandler = generateTouchtapHandler(tapHandler);

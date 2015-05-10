@@ -1,6 +1,6 @@
 {
   "name": "abbr-touch.js",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A JavaScript library that makes <abbr> element title attributes touch accessible.",
   "main": "abbr-touch.js",
   "scripts": {
@@ -28,5 +28,8 @@
     "grunt-contrib-copy": "^0.5.0",
     "grunt-contrib-jasmine": "^0.6.5",
     "grunt-contrib-uglify": "^0.5.0"
+  },
+  "dependencies": {
+    "touchtap-event.js": "^1.1.1"
   }
 }
