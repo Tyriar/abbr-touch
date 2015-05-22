@@ -1,10 +1,8 @@
-/*!
- * abbr-touch.js
- * http://github.com/Tyriar/abbr-touch.js
- *
- * Copyright 2014 Daniel Imms (http://www.growingwiththeweb.com)
- * Released under the MIT license
- * http://github.com/Tyriar/abbr-touch.js/blob/master/LICENSE
+/**
+ * @license
+ * abbr-touch <http://github.com/Tyriar/abbr-touch>
+ * Copyright 2014 Daniel Imms <http://www.growingwiththeweb.com>
+ * Released under the MIT license <http://github.com/Tyriar/abbr-touch/blob/master/LICENSE>
  */
 
 var abbrTouch = (function () {
