@@ -1,6 +1,6 @@
 {
   "name": "abbr-touch",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Library to make <abbr> element title attributes touch accessible.",
   "main": "abbr-touch.js",
   "scripts": {
