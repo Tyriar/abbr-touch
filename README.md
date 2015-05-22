@@ -22,7 +22,11 @@ npm install --save abbr-touch
 ## Including
 
 ```html
-<script src="dist/abbr-touch.js"></script>
+<!-- Bower -->
+<script src="bower_components/abbr-touch/abbr-touch.js"></script>
+
+<!-- NPM -->
+<script src="bower_components/abbr-touch/abbr-touch.js"></script>
 ```
 
 
