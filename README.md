@@ -3,7 +3,7 @@
 [![Build Status](http://img.shields.io/travis/Tyriar/abbr-touch.svg?style=flat)](https://travis-ci.org/Tyriar/abbr-touch)
 [![Code Climate](http://img.shields.io/codeclimate/github/Tyriar/abbr-touch.svg?style=flat)](https://codeclimate.com/github/Tyriar/abbr-touch)
 
-A JavaScript library that makes `<abbr>` element `title` attributes touch accessible.
+A library to make <abbr> element title attributes touch accessible.
 
 
 ## Installing
@@ -20,7 +20,7 @@ npm install --save abbr-touch
 ## Including
 
 ```html
-<script src="dist/abbr-touch.min.js"></script>
+<script src="dist/abbr-touch.js"></script>
 ```
 
 

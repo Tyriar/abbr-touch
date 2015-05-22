@@ -4,8 +4,7 @@
  * Copyright 2014 Daniel Imms <http://www.growingwiththeweb.com>
  * Released under the MIT license <http://github.com/Tyriar/abbr-touch/blob/master/LICENSE>
  */
-
-var abbrTouch = (function () {
+var abbrTouch = (function () { // eslint-disable-line no-unused-vars
   'use strict';
 
   /**
@@ -14,16 +13,16 @@ var abbrTouch = (function () {
    * @returns {Function}
    */
   function generateTouchtapHandler(handler) {
-    return (function (e) {
+    return function (e) {
       handler(e.target, e.target.title, e.customData.touchX, e.customData.touchY);
-    });
+    };
   }
 
   /**
    * The default lightweight tap handler.
    */
-  function defaultOnTapHandler(target, title, touchX, touchY) {
-    alert(title);
+  function defaultOnTapHandler(target, title, touchX, touchY) { // eslint-disable-line no-unused-vars
+    alert(title); // eslint-disable-line no-alert
   }
 
   /**
