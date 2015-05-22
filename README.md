@@ -5,6 +5,8 @@
 
 A library to make <abbr> element title attributes touch accessible.
 
+[![Example usage: touching an <abbr> tag brings up a description](example.png)][1]
+
 
 ## Installing
 
