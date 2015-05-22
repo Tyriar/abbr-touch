@@ -8,6 +8,31 @@
 var abbrTouch = (function () {
   'use strict';
 
+  /**
+   * Generates a touchtap event handler that calls the tap handler provided.
+   * @param {Function} handler The tap handler to call.
+   * @returns {Function}
+   */
+  function generateTouchtapHandler(handler) {
+    return (function (e) {
+      handler(e.target, e.target.title, e.customData.touchX, e.customData.touchY);
+    });
+  }
+
+  /**
+   * The default lightweight tap handler.
+   */
+  function defaultOnTapHandler(target, title, touchX, touchY) {
+    alert(title);
+  }
+
+  /**
+   * Attaches abbrTouch events on all abbr[title] elements within an element
+   * @param {HTMLElement} elementScope The element containing abbr[title]
+   * elements.
+   * @param {Function} customTapHandler (Optional) A custom touchtap handler to
+   * be used when abbr[title] elements are touched.
+   */
   function init(elementScope, customTapHandler) {
     if (!elementScope) {
       elementScope = document;
@@ -20,16 +45,6 @@ var abbrTouch = (function () {
     for (var i = 0; i < elements.length; i++) {
       elements[i].addEventListener('touchtap', touchtapHandler);
     }
-  }
-
-  function generateTouchtapHandler(handler) {
-    return (function (e) {
-      handler(e.target, e.target.title, e.customData.touchX, e.customData.touchY);
-    });
-  }
-
-  function defaultOnTapHandler(target, title, touchX, touchY) {
-    alert(title);
   }
 
   return init;
