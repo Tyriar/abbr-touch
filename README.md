@@ -1,7 +1,7 @@
-# abbr-touch.js [![NPM version](http://img.shields.io/npm/v/abbr-touch.js.svg?style=flat)](https://www.npmjs.org/package/abbr-touch.js)
+# abbr-touch [![NPM version](http://img.shields.io/npm/v/abbr-touch.svg?style=flat)](https://www.npmjs.org/package/abbr-touch)
 
-[![Build Status](http://img.shields.io/travis/Tyriar/abbr-touch.js.svg?style=flat)](https://travis-ci.org/Tyriar/abbr-touch.js)
-[![Code Climate](http://img.shields.io/codeclimate/github/Tyriar/abbr-touch.js.svg?style=flat)](https://codeclimate.com/github/Tyriar/abbr-touch.js)
+[![Build Status](http://img.shields.io/travis/Tyriar/abbr-touch.svg?style=flat)](https://travis-ci.org/Tyriar/abbr-touch)
+[![Code Climate](http://img.shields.io/codeclimate/github/Tyriar/abbr-touch.svg?style=flat)](https://codeclimate.com/github/Tyriar/abbr-touch)
 
 A JavaScript library that makes `<abbr>` element `title` attributes touch accessible.
 
@@ -10,10 +10,10 @@ A JavaScript library that makes `<abbr>` element `title` attributes touch access
 
 ```bash
 # via bower
-bower install --save abbr-touch.js
+bower install --save abbr-touch
 
 # via NPM
-npm install --save abbr-touch.js
+npm install --save abbr-touch
 ```
 
 
@@ -49,11 +49,11 @@ function myHandler(target, title, touchX, touchY) {
 
 ## See also
 
-- [touchtap-event.js][3]
+- [touchtap-event][3]
 - [abbr-fill.js][1]
 
 
 
   [1]: https://github.com/Tyriar/abbr-fill.js
   [2]: https://github.com/Tyriar/abbr-touch.js/blob/master/demo.html
-  [3]: https://github.com/Tyriar/touchtap-event.js
+  [3]: https://github.com/Tyriar/touchtap-event

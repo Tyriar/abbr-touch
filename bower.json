@@ -1,8 +1,8 @@
 {
-  "name": "abbr-touch.js",
+  "name": "abbr-touch",
   "main": "abbr-touch.js",
   "version": "0.1.0",
-  "homepage": "https://github.com/Tyriar/abbr-touch.js",
+  "homepage": "https://github.com/Tyriar/abbr-touch",
   "authors": [
     "Tyriar (http://www.growingwiththeweb.com)"
   ],
@@ -18,8 +18,5 @@
     "bower_components",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "touchtap-event.js": "~1.1.2"
-  }
+  ]
 }
