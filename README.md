@@ -49,9 +49,11 @@ function myHandler(target, title, touchX, touchY) {
 
 ## See also
 
+- [touchtap-event.js][3]
 - [abbr-fill.js][1]
 
 
 
   [1]: https://github.com/Tyriar/abbr-fill.js
   [2]: https://github.com/Tyriar/abbr-touch.js/blob/master/demo.html
+  [3]: https://github.com/Tyriar/touchtap-event.js
