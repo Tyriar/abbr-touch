@@ -1,14 +1,14 @@
 {
-  "name": "abbr-touch.js",
+  "name": "abbr-touch",
   "version": "1.0.0",
-  "description": "A JavaScript library that makes <abbr> element title attributes touch accessible.",
+  "description": "Library to make <abbr> element title attributes touch accessible.",
   "main": "abbr-touch.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Tyriar/abbr-touch.js.git"
+    "url": "https://github.com/Tyriar/abbr-touch.git"
   },
   "keywords": [
     "touch",
@@ -19,15 +19,12 @@
   "author": "Daniel Imms (http://www.growingwiththeweb.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Tyriar/abbr-touch.js/issues"
+    "url": "https://github.com/Tyriar/abbr-touch/issues"
   },
-  "homepage": "https://github.com/Tyriar/abbr-touch.js",
+  "homepage": "https://github.com/Tyriar/abbr-touch",
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-contrib-clean": "^0.5.0",
-    "grunt-contrib-copy": "^0.5.0",
-    "grunt-contrib-jasmine": "^0.6.5",
-    "grunt-contrib-uglify": "^0.5.0"
+    "grunt-contrib-jasmine": "^0.8.2"
   },
   "dependencies": {
     "touchtap-event": "^2.0.0"
