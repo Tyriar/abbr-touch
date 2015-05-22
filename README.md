@@ -5,6 +5,25 @@
 
 A JavaScript library that makes `<abbr>` element `title` attributes touch accessible.
 
+
+## Installing
+
+```bash
+# via bower
+bower install --save abbr-touch.js
+
+# via NPM
+npm install --save abbr-touch.js
+```
+
+
+## Including
+
+```html
+<script src="dist/abbr-touch.min.js"></script>
+```
+
+
 ## Usage
 
 See [demo.html][2] for a deeper example.
@@ -26,6 +45,7 @@ function myHandler(target, title, touchX, touchY) {
   console.log(touchY);
 }
 ```
+
 
 ## See also
 
