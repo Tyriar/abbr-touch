@@ -6,7 +6,7 @@
   "authors": [
     "Tyriar (http://www.growingwiththeweb.com)"
   ],
-  "description": "Library to make <abbr> element title attributes touch accessible.",
+  "description": "Makes <abbr> element title attributes touch accessible",
   "keywords": [
     "touch",
     "event"

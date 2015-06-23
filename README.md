@@ -3,7 +3,7 @@
 [![Build Status](http://img.shields.io/travis/Tyriar/abbr-touch.svg?style=flat)](https://travis-ci.org/Tyriar/abbr-touch)
 [![Code Climate](http://img.shields.io/codeclimate/github/Tyriar/abbr-touch.svg?style=flat)](https://codeclimate.com/github/Tyriar/abbr-touch)
 
-A library to make <abbr> element title attributes touch accessible.
+Makes <abbr> element title attributes touch accessible.
 
 [![Example usage: touching an <abbr> tag brings up a description](example.png)][1]
 
