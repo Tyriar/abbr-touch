@@ -9,8 +9,8 @@ var abbrTouch = (function () { // eslint-disable-line no-unused-vars
 
   /**
    * Generates a touchtap event handler that calls the tap handler provided.
-   * @param {Function} handler The tap handler to call.
-   * @returns {Function}
+   * @param {function} handler The tap handler to call.
+   * @returns {function}
    */
   function generateTouchtapHandler(handler) {
     return function (e) {
@@ -29,10 +29,13 @@ var abbrTouch = (function () { // eslint-disable-line no-unused-vars
    * Attaches abbrTouch events on all abbr[title] elements within an element
    * @param {HTMLElement} elementScope The element containing abbr[title]
    * elements.
-   * @param {Function} customTapHandler (Optional) A custom touchtap handler to
+   * @param {function} customTapHandler (Optional) A custom touchtap handler to
    * be used when abbr[title] elements are touched.
+   * @param {function} listenToClick (Optional) Set to true to listen to the
+   * click instead of the touchtap event, enabling the feature for non-touch
+   * devices.
    */
-  function init(elementScope, customTapHandler) {
+  function init(elementScope, customTapHandler, listenToClick) {
     if (!elementScope) {
       elementScope = document;
     }
@@ -42,7 +45,7 @@ var abbrTouch = (function () { // eslint-disable-line no-unused-vars
     var elements = elementScope.querySelectorAll('abbr[title]');
     var touchtapHandler = generateTouchtapHandler(tapHandler);
     for (var i = 0; i < elements.length; i++) {
-      elements[i].addEventListener('touchtap', touchtapHandler);
+      elements[i].addEventListener(listenToClick ? 'click' : 'touchtap', touchtapHandler);
     }
   }
 
