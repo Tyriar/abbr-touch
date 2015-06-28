@@ -32,8 +32,6 @@ npm install --save abbr-touch
 
 ## Usage
 
-See [demo.html][2] for a deeper example.
-
 ```javascript
 // default handler on document (alert)
 abbrTouch();
@@ -52,6 +50,8 @@ function myHandler(target, title, touchX, touchY) {
 }
 ```
 
+A deeper example of usage can be found in [demo.html][2]. A live demo can be viewed on [Growing with the Web][4].
+
 
 ## See also
 
@@ -63,3 +63,4 @@ function myHandler(target, title, touchX, touchY) {
   [1]: https://github.com/Tyriar/abbr-fill.js
   [2]: https://github.com/Tyriar/abbr-touch.js/blob/master/demo.html
   [3]: https://github.com/Tyriar/touchtap-event
+  [4]: http://www.growingwiththeweb.com/projects/abbr-touch/
