@@ -31,11 +31,8 @@ var abbrTouch = (function () { // eslint-disable-line no-unused-vars
    * elements.
    * @param {function} customTapHandler (Optional) A custom touchtap handler to
    * be used when abbr[title] elements are touched.
-   * @param {function} listenToClick (Optional) Set to true to listen to the
-   * click instead of the touchtap event, enabling the feature for non-touch
-   * devices.
    */
-  function init(elementScope, customTapHandler, listenToClick) {
+  function init(elementScope, customTapHandler, emulateTouch) {
     if (!elementScope) {
       elementScope = document;
     }
@@ -45,7 +42,7 @@ var abbrTouch = (function () { // eslint-disable-line no-unused-vars
     var elements = elementScope.querySelectorAll('abbr[title]');
     var touchtapHandler = generateTouchtapHandler(tapHandler);
     for (var i = 0; i < elements.length; i++) {
-      elements[i].addEventListener(listenToClick ? 'click' : 'touchtap', touchtapHandler);
+      elements[i].addEventListener('touchtap', touchtapHandler);
     }
   }
 
