@@ -1,54 +1,143 @@
+<!-- Include lib and dependency -->
+<script src="node_modules/touchtap-event/touchtap-event.js" type="text/javascript"></script>
+<script src="abbr-touch.js" type="text/javascript"></script>
 <style>
   abbr[title] {
-    background-color:red;
-  }
-  #tooltip {
-    visibility: hidden;
-    position: absolute;
-    background-color: yellow;
-    border: 1px solid #000;
-    font-size: 1.3em;
-    opacity: 0.85;
-  }
-  #tooltip[data-timestamp] {
-    visibility: visible;
+    background-color: #ffff99;
   }
 </style>
 <p>This demo will only work on touch-enabled devices or a browser emulating touch.</p>
 
+
+
+<!-- Default handler -->
 <div id="first">
   <h2>Default handler</h2>
   <p>This library listens for a <abbr title="JavaScript">JS</abbr> event that is triggered when a tap occurs on an <abbr title="abbreviation/acronym">abbr</abbr> <abbr title="HyperText Markup Language">HTML</abbr> element on a touch-enabled device. When a tap occurs, a pop up is displayed.</p>
 </div>
+<script>
+abbrTouch(document.querySelector('#first'), undefined, true);
+</script>
+
+
+
+<!-- Custom handler #1 -->
 
 <div id="second">
-  <h2>Custom handler</h2>
-  <p>This library listens for a <abbr title="JavaScript">JS</abbr> event that is triggered when a tap occurs on an <abbr title="abbreviation/acronym">abbr</abbr> <abbr title="HyperText Markup Language">HTML</abbr> a touch-enabled device. When a tap occurs, a pop up is displayed.</p>
+  <h2>Custom handler #1</h2>
+  <p>abbr-touch allows custom handlers to be attached so that the presentation of the <abbr title="abbreviation/acronym">abbr</abbr>'s data can be the developer wants it to be. This custom handler displays a popup near the touch event. More examples:</p>
+  <ul>
+  <li><abbr title="HyperText Markup Language">HTML</abbr></li>
+  <li><abbr title="Cascading StyleSheets">CSS</abbr></li>
+  <li><abbr title="JavaScript">JS</abbr></li>
+  </ul>
 </div>
-
-<div id="tooltip"></div>
-
-<!-- dependency -->
-<script src="node_modules/touchtap-event/touchtap-event.js" type="text/javascript"></script>
-
-<script src="abbr-touch.js" type="text/javascript"></script>
+<div id="tooltip-1"></div>
+<style>
+/* Custom handler #1 */
+#tooltip-1 {
+  visibility: hidden;
+  position: absolute;
+  background-color: yellow;
+  border: 1px solid #000;
+  font-size: 1.3em;
+  opacity: 0.85;
+}
+#tooltip-1[data-timestamp] {
+  visibility: visible;
+}
+</style>
 <script>
-  // default handler
-  abbrTouch(document.querySelector('#first'), undefined, true);
-  // custom handler
-  abbrTouch(document.querySelector('#second'), function (target, title, touchX, touchY) {
-    var tooltip = document.querySelector('#tooltip');
-    tooltip.innerHTML = title;
-    tooltip.style.left = (touchX - tooltip.clientWidth / 2) + 'px';
-    tooltip.style.top = (touchY - 50) + 'px';
-    var timestamp = (new Date()).getTime();
-    tooltip.setAttribute('data-timestamp', timestamp);
-    document.body.appendChild(tooltip);
+abbrTouch(document.querySelector('#second'), function (target, title, touchX, touchY) {
+  var tooltip = document.querySelector('#tooltip-1');
+  tooltip.innerHTML = title;
+  tooltip.style.left = (touchX - tooltip.clientWidth / 2) + 'px';
+  tooltip.style.top = (touchY - 50) + 'px';
+  var timestamp = (new Date()).getTime();
+  tooltip.setAttribute('data-timestamp', timestamp);
+  document.body.appendChild(tooltip);
 
-    setTimeout(function () {
-      if (tooltip.getAttribute('data-timestamp') == timestamp) {
-        tooltip.removeAttribute('data-timestamp');
+  setTimeout(function () {
+    if (tooltip.getAttribute('data-timestamp') == timestamp) {
+      tooltip.removeAttribute('data-timestamp');
+    }
+  }, 1500);
+}, true);
+</script>
+
+
+
+<!-- Custom handler #2 -->
+
+<div id="third">
+  <h2>Custom handler #2</h2>
+  <p>This custom handler slides up the <abbr title="abbreviation/acronym">abbr</abbr> from the bottom of the page using a CSS transition. More examples:</p>
+  <ul>
+  <li><abbr title="HyperText Markup Language">HTML</abbr></li>
+  <li><abbr title="Cascading StyleSheets">CSS</abbr></li>
+  <li><abbr title="JavaScript">JS</abbr></li>
+  </ul>
+</div>
+<div id="tooltip-2"></div>
+<style>
+#tooltip-2 {
+  position: fixed;
+  bottom: -5em;
+  left: 0;
+  right: 0;
+  background-color: #FFF;
+  border-top: 1px solid #000;
+  text-align: center;
+  font-size: 1.4em;
+  padding: 1em .5em;
+  transition: bottom cubic-bezier(.73,0,.27,1) .3s;
+
+  // Layer hack to force the tooltip on to another layer
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+#tooltip-2.visible {
+  bottom: 0em;
+}
+</style>
+<script>
+  // custom handler #2
+  (function () {
+    var tooltipTimeout;
+
+    function getTooltipElement() {
+      var tooltip = document.querySelector('#tooltip-2');
+      if (!tooltip) {
+        tooltip = document.createElement('div');
+        tooltip.id = 'abbr-tooltip';
+        // Technically this is duplicate content, just exposing it on mobile
+        tooltip.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(tooltip);
       }
-    }, 1500);
-  }, true);
+      return tooltip;
+    }
+
+    function updateTooltip(tooltip, term, expandedTerm) {
+      var text = term + ': ' + expandedTerm;
+      tooltip.innerHTML = text;
+      tooltip.classList.add('visible');
+
+      if (tooltipTimeout) {
+        window.clearTimeout(tooltipTimeout);
+      }
+
+      var timeoutLength = text.length * 120;
+      tooltipTimeout = window.setTimeout(function () {
+        tooltip.classList.remove('visible');
+      }, timeoutLength);
+    }
+
+    abbrTouch(document.querySelector('#third'), function (target, title) {
+      var tooltip = getTooltipElement();
+      // Ensure the tooltip is ready so that the initial transition works
+      window.setTimeout(function () {
+        updateTooltip(tooltip, target.innerHTML, title);
+      }, 0);
+    });
+  })();
 </script>
