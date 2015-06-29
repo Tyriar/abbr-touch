@@ -3,7 +3,7 @@
 [![Build Status](http://img.shields.io/travis/Tyriar/abbr-touch.svg?style=flat)](https://travis-ci.org/Tyriar/abbr-touch)
 [![Code Climate](http://img.shields.io/codeclimate/github/Tyriar/abbr-touch.svg?style=flat)](https://codeclimate.com/github/Tyriar/abbr-touch)
 
-abbr-touch is a tiny JavaScript library that makes the title attibute of `<abbr>` element touch accessible. It does so by utilising [touchtap-event][3] to only expose the functionality to touch-enabled devices, a custom touch handler can then be used to display `<abbr>`'s content any way you wish.
+abbr-touch is a tiny JavaScript library that makes the title attribute of `<abbr>` element touch accessible. It does so by utilising [touchtap-event][3] to only expose the functionality to touch-enabled devices, a custom touch handler can then be used to display `<abbr>`'s content any way you wish.
 
 [![Example usage: touching an <abbr> tag brings up a description](example.png)][1]
 
