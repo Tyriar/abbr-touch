@@ -32,7 +32,7 @@ var abbrTouch = (function () { // eslint-disable-line no-unused-vars
    * @param {function} customTapHandler (Optional) A custom touchtap handler to
    * be used when abbr[title] elements are touched.
    */
-  function init(elementScope, customTapHandler, emulateTouch) {
+  function init(elementScope, customTapHandler) {
     if (!elementScope) {
       elementScope = document;
     }
