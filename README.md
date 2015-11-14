@@ -8,24 +8,16 @@ abbr-touch is a tiny JavaScript library that makes the title attribute of `<abbr
 [![Example usage: touching an <abbr> tag brings up a description](example.png)][1]
 
 
-## Installing
+## Install
 
 ```bash
-# via bower
-bower install --save abbr-touch
-
-# via NPM
 npm install --save abbr-touch
 ```
 
 
-## Including
+## Include
 
 ```html
-<!-- Bower -->
-<script src="bower_components/abbr-touch/abbr-touch.js"></script>
-
-<!-- NPM -->
 <script src="node_modules/abbr-touch/abbr-touch.js"></script>
 ```
 
