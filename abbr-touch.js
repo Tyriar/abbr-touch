@@ -14,7 +14,7 @@ var abbrTouch = (function () { // eslint-disable-line no-unused-vars
    */
   function generateTouchtapHandler(handler) {
     return function (e) {
-      handler(e.target, e.target.title, e.customData.touchX, e.customData.touchY);
+      handler(e.currentTarget, e.currentTarget.title, e.customData.touchX, e.customData.touchY);
     };
   }
 
