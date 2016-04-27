@@ -1,8 +1,8 @@
 {
-  'env': {
-    'browser': true
+  "env": {
+    "browser": true
   },
-  'rules': {
-    'quotes': [1, 'single']
+  "rules": {
+    "quotes": [1, "single"]
   }
 }
