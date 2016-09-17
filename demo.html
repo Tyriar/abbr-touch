@@ -91,6 +91,7 @@ abbrTouch(document.querySelector('#second'), function (target, title, touchX, to
   font-size: 1.4em;
   padding: 1em .5em;
   transition: bottom cubic-bezier(.73,0,.27,1) .3s;
+  will-change: transform;
 
   // Layer hack to force the tooltip on to another layer
   -webkit-transform: translateZ(0);
