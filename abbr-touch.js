@@ -33,18 +33,31 @@ var abbrTouch = (function () { // eslint-disable-line no-unused-vars
    * be used when abbr[title] elements are touched.
    */
   function init(elementScope, customTapHandler) {
-    if (!elementScope) {
-      elementScope = document;
+    try {
+      if (!elementScope) {
+        elementScope = document;
+      }
+
+      var tapHandler = customTapHandler || defaultOnTapHandler;
+
+      var elements = elementScope.querySelectorAll('abbr[title]');
+      var touchtapHandler = generateTouchtapHandler(tapHandler);
+      for (var i = 0; i < elements.length; i++) {
+        // EventTarget.addEventListener() is supported by most browsers, including IE9 and newer.
+        if (elements[i].addEventListener) {
+          elements[i].addEventListener('touchtap', touchtapHandler, false);
+        }
+        else {
+          // EventTarget.addEventListener() is not implemented in this browser.
+          // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Browser_compatibility
+          break;
+        }
+      }
     }
-
-    var tapHandler = customTapHandler || defaultOnTapHandler;
-
-    var elements = elementScope.querySelectorAll('abbr[title]');
-    var touchtapHandler = generateTouchtapHandler(tapHandler);
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].addEventListener('touchtap', touchtapHandler);
+    catch (err) {
+      // Some old browsers do not support Document.querySelectorAll() - e.g. prior to IE9.
+      // https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll#Browser_compatibility
     }
   }
-
   return init;
 })();
